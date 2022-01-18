@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/myformik/static/css/main.073c9b0a.css",
-    "main.js": "/myformik/static/js/main.70304385.js",
-    "static/js/787.8d88c5d9.chunk.js": "/myformik/static/js/787.8d88c5d9.chunk.js",
+    "main.css": "/myformik/static/css/main.bfe7a4a0.css",
+    "main.js": "/myformik/static/js/main.fd906b88.js",
+    "static/js/787.c1d6d700.chunk.js": "/myformik/static/js/787.c1d6d700.chunk.js",
     "static/media/logo.svg": "/myformik/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/myformik/index.html",
-    "main.073c9b0a.css.map": "/myformik/static/css/main.073c9b0a.css.map",
-    "main.70304385.js.map": "/myformik/static/js/main.70304385.js.map",
-    "787.8d88c5d9.chunk.js.map": "/myformik/static/js/787.8d88c5d9.chunk.js.map"
+    "main.bfe7a4a0.css.map": "/myformik/static/css/main.bfe7a4a0.css.map",
+    "main.fd906b88.js.map": "/myformik/static/js/main.fd906b88.js.map",
+    "787.c1d6d700.chunk.js.map": "/myformik/static/js/787.c1d6d700.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.70304385.js"
+    "static/css/main.bfe7a4a0.css",
+    "static/js/main.fd906b88.js"
   ]
 }
