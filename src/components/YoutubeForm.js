@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Formik,
   Form,
@@ -10,7 +10,7 @@ import {
 
 import * as Yup from "yup";
 import TextError from "./TextError";
-//var
+//var initial values
 const initialValues = {
   name: "",
   email: "",
@@ -24,11 +24,27 @@ const initialValues = {
   phoneNumbers: ["", ""],
   phNumbers: [""],
 };
+//var savedvalues
+const savedValues = {
+  name: "Tommy",
+  email: "laridatommy2@gmail.com",
+  channel: "ABS-CBN",
+  comments: "Hello World",
+  address: "Hungary",
+  social: {
+    facebook: "tlarida/facebook.com",
+    twitter: "twitybird",
+  },
+  phoneNumbers: ["123", "321"],
+  phNumbers: ["222"],
+};
 //var
 const onSubmit = (values, onSubmitProps) => {
   console.log("Form data", values);
   console.log("Submit props", onSubmitProps);
   onSubmitProps.setSubmitting(false)
+  onSubmitProps.resetForm()
+
 };
 
 //var  - Yup is better way to validate
@@ -50,17 +66,21 @@ const validateComments = (value) => {
 //
 function YoutubeForm() {
   //Step 2 - add onchange and the value prop each of the formfields
+ const [formValues, setFormValues] = useState(null)
   return (
+    
     <Formik
-      initialValues={initialValues}
+      initialValues={formValues || initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      enableReinitialize
       // validateOnMount
     >
       {/* access formik props - function as childrren then return form*/}
       {(formik) => {
         console.log('Formik props', formik)
         return (
+        
           <Form>
             {/* name */}
             <div className="form-control">
@@ -180,7 +200,7 @@ function YoutubeForm() {
               </FieldArray>
             </div>
 
-                <button type='button' onClick={() => formik.validateField('comments')}>Validate comments</button>
+                {/* <button type='button' onClick={() => formik.validateField('comments')}>Validate comments</button>
                 <button type='button' onClick={() => formik.validateForm()}>Validate all</button>
 
                 <button type='button' onClick={() => formik.setFieldTouched('comments')}>Visit comments</button>
@@ -189,11 +209,15 @@ function YoutubeForm() {
                   email: true,
                   channel: true,
                   comments: true
-                  })}>Visit fields</button>
-                  {/* // isValid is a prop tells us if the form  has no errors - disable button if their is error */}
+                  })}>Visit fields</button> */}
+
+
+                  {/* // isValid(true) if error object is empty and tells us if the form  has no errors - disable button if their is error */}
                   {/* // dirty is a prop tells us if anyfield values has change  */}
                   {/* // disable if form is submitting  */}
             {/* <button type="submit" disabled={!formik.isValid}>Submit</button> */}
+            <button type="button" onClick={() => setFormValues(savedValues)}>Load saved data</button>
+            <button type="reset">Reset</button>
             <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
           </Form>
         );
